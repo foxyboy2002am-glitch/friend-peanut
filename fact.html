@@ -66,15 +66,22 @@ nav a:hover { color: var(--gold); }
 }
 
 .hero-content img {
-    width: 120px;
+    width: 150px;        /* كبرناه */
     height: auto;
     background: none;
     padding: 0;
     border-radius: 0;
     object-fit: contain;
-    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.25));
-    margin-bottom: 20px;
+    filter: drop-shadow(0 12px 22px rgba(0,0,0,0.35));
+    margin-bottom: 22px;
     animation: float 4s ease-in-out infinite;
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+    .hero-content img {
+        width: 120px;   
+    }
 }
 
 /* موبايل */
@@ -257,8 +264,24 @@ footer {
 <!-- CONTACT -->
 <section class="section contact">
     <h2>تواصل معنا</h2>
+
+    <div class="contact-card">
+        <p><strong>محمد الشبراوي</strong></p>
+        <p>مدير المبيعات والتصدير</p>
+        <p>
+            📞 <a href="tel:+201274095083">+20 127 409 5083</a>
+        </p>
+    </div>
+
+    <div class="contact-card">
+        <p><strong>محمد صيام</strong></p>
+        <p>قسم المبيعات</p>
+        <p>
+            📞 <a href="tel:+201068345983">+20 106 834 5983</a>
+        </p>
+    </div>
+
     <p>📍 الشرقية – أبو حماد – مصر</p>
-    <p>📞 (+20) 01068345983</p>
     <p>📧 hosamseiam@yahoo.com</p>
 </section>
 
@@ -282,3 +305,4 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+
