@@ -6,6 +6,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+    .contact {
+    text-align: center;
+}
+
+.contact-card {
+    background: rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 18px;
+    margin: 18px auto;
+    max-width: 340px;
+}
+
+.contact-card .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.contact-card .role {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.contact-card .phone {
+    direction: ltr;          /* 👈 الحل السحري */
+    unicode-bidi: embed;
+    font-size: 1.05rem;
+    margin-top: 8px;
+}
+
+.contact-card a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.location, .email {
+    margin-top: 12px;
+}
 :root {
     --main: #8b5a2b;      /* لون فول سوداني */
     --dark: #5c3b1e;
@@ -66,15 +105,21 @@ nav a:hover { color: var(--gold); }
 }
 
 .hero-content img {
-    width: 150px;        /* كبرناه */
+    width: 200px;              /* كبر واضح */
+    max-width: 70vw;           /* ميتفلتش على الموبايل */
     height: auto;
     background: none;
     padding: 0;
-    border-radius: 0;
     object-fit: contain;
-    filter: drop-shadow(0 12px 22px rgba(0,0,0,0.35));
-    margin-bottom: 22px;
-    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 14px 28px rgba(0,0,0,0.4));
+    margin-bottom: 25px;
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+    .hero-content img {
+        width: 160px;          /* كبير ومظبوط */
+    }
 }
 
 /* موبايل */
@@ -266,23 +311,23 @@ footer {
     <h2>تواصل معنا</h2>
 
     <div class="contact-card">
-        <p><strong>محمد الشبراوي</strong></p>
-        <p>مدير المبيعات والتصدير</p>
-        <p>
+        <p class="name">محمد الشبراوي</p>
+        <p class="role">مدير المبيعات والتصدير</p>
+        <p class="phone">
             📞 <a href="tel:+201274095083">+20 127 409 5083</a>
         </p>
     </div>
 
     <div class="contact-card">
-        <p><strong>محمد صيام</strong></p>
-        <p>قسم المبيعات</p>
-        <p>
+        <p class="name">محمد صيام</p>
+        <p class="role">قسم المبيعات</p>
+        <p class="phone">
             📞 <a href="tel:+201068345983">+20 106 834 5983</a>
         </p>
     </div>
 
-    <p>📍 الشرقية – أبو حماد – مصر</p>
-    <p>📧 hosamseiam@yahoo.com</p>
+    <p class="location">📍 الشرقية – أبو حماد – مصر</p>
+    <p class="email">📧 hosamseiam@yahoo.com</p>
 </section>
 
 <footer>
