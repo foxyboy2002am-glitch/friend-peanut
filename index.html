@@ -83,10 +83,26 @@ h2 {
   line-height: 1.8;
 }
 
-.contact a {
-  color: #7a4a1e;
+/* حل مشكلة الأرقام */
+.phone {
+  direction: ltr;
+  unicode-bidi: embed;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-weight: bold;
+  color: #7a4a1e;
   text-decoration: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #3b2a1f;
+  color: #fff;
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 14px;
+  line-height: 1.8;
 }
 </style>
 </head>
@@ -168,15 +184,15 @@ h2 {
   <h2>تواصل معنا</h2>
 
   <p>
-    <strong>ا:محمد الشبراوي</strong><br>
+    <strong>ا: محمد الشبراوي</strong><br>
     مدير المبيعات والتصدير<br>
-    📞 <a href="tel:+201274095083">+20 127 409 5083</a>
+    <a class="phone" href="tel:+201274095083">📞 +20 127 409 5083</a>
   </p>
 
   <p>
-    <strong>الحاج:محمد صيام </strong><br>
+    <strong>الحاج: محمد صيام</strong><br>
     قسم المبيعات<br>
-    📞 <a href="tel:+201068345983">+20 106 834 5983</a>
+    <a class="phone" href="tel:+201068345983">📞 +20 106 834 5983</a>
   </p>
 
   <p>
@@ -186,27 +202,9 @@ h2 {
 </section>
 
 <footer>
-    © 2026 FRIEND PEANUT – All Rights Reserved<br>
-    Developed & Designed by <strong>WonderTech</strong>
+  © 2026 FRIEND PEANUT – All Rights Reserved<br>
+  Developed & Designed by <strong>WonderTech</strong>
 </footer>
-
-<script>
-/* Scroll animation */
-window.addEventListener("scroll", () => {
-    document.querySelectorAll(".card").forEach(card => {
-        let pos = card.getBoundingClientRect().top;
-        if (pos < window.innerHeight - 100) {
-            card.style.opacity = 1;
-            card.style.transform = "translateY(0)";
-        }
-    });
-});
-</script>
-
-</body>
-</html>
-
-
 
 </body>
 </html>
