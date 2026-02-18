@@ -6,139 +6,141 @@
 <title>Friend Peanut</title>
 
 <style>
-html { scroll-behavior: smooth; }
+:root{
+  --brown:#3b2a1f;
+  --gold:#c9a36b;
+  --light:#f7f2ec;
+}
 
-body {
-  margin: 0;
-  font-family: Tahoma, Arial;
-  background: #f7f2ec;
-  color: #333;
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Tahoma,Arial;
+  background:var(--light);
+  color:#333;
 }
 
 /* ===== NAV ===== */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(59,42,31,0.95);
-  padding: 15px;
-  text-align: center;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(59,42,31,.85);
+  backdrop-filter:blur(6px);
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:999;
 }
 
-nav a {
-  color: #fff;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 5px;
+nav .links a{
+  color:#fff;
+  margin:0 12px;
+  text-decoration:none;
+  font-weight:bold;
+  padding-bottom:4px;
+  border-bottom:2px solid transparent;
+  transition:.3s;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: #f4c27a;
-  left: 50%;
-  bottom: 0;
-  transition: 0.3s;
+nav .links a:hover,
+nav .links a.active{
+  border-color:var(--gold);
+  color:var(--gold);
 }
 
-nav a:hover::after {
-  width: 100%;
-  left: 0;
+.lang-btn{
+  background:var(--gold);
+  border:none;
+  padding:6px 12px;
+  cursor:pointer;
+  font-weight:bold;
+  border-radius:20px;
 }
 
 /* ===== SECTIONS ===== */
-section {
-  padding: 100px 20px;
-  text-align: center;
-  animation: fadeUp 1s ease;
+section{
+  padding:110px 20px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s;
 }
 
-@keyframes fadeUp {
-  from {opacity:0; transform: translateY(30px);}
-  to {opacity:1; transform: translateY(0);}
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-h2 {
-  color: #7a4a1e;
-  margin-bottom: 20px;
+h2{
+  color:#7a4a1e;
+  margin-bottom:20px;
 }
 
 /* ===== HOME ===== */
-#home {
-  background: linear-gradient(#8b5a2b, #c9a36b);
-  color: white;
-  padding-top: 150px;
+#home{
+  background:linear-gradient(#8b5a2b,#c9a36b);
+  color:white;
+  padding-top:150px;
 }
 
-#home img {
-  width: 140px;
-  margin-bottom: 20px;
-  animation: zoomIn 1s ease;
+#home img{
+  width:150px;
+  margin-bottom:20px;
 }
 
-@keyframes zoomIn {
-  from {transform: scale(0.7); opacity:0;}
-  to {transform: scale(1); opacity:1;}
+#home h1{
+  font-size:42px;
+  letter-spacing:3px;
 }
 
-#home h1 {
-  font-size: 40px;
-  letter-spacing: 3px;
+/* ===== LIST ===== */
+ul{
+  list-style:none;
+  padding:0;
+  font-size:18px;
 }
 
 /* ===== GALLERY ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: auto;
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  max-width:1200px;
+  margin:auto;
 }
 
-.gallery img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transition: 0.4s;
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  transition:.4s;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+.gallery img:hover{
+  transform:scale(1.05);
 }
 
 /* ===== CONTACT ===== */
-.contact p {
-  font-size: 18px;
-  line-height: 2;
+.contact p{
+  font-size:18px;
+  line-height:1.8;
 }
 
-.phone {
-  direction: ltr;
-  unicode-bidi: embed;
-  display: inline-flex;
-  gap: 6px;
-  font-weight: bold;
-  color: #7a4a1e;
-  text-decoration: none;
+.phone{
+  direction:ltr;
+  display:inline-block;
+  font-weight:bold;
 }
 
 /* ===== FOOTER ===== */
-footer {
-  background: #3b2a1f;
-  color: #fff;
-  text-align: center;
-  padding: 25px 15px;
-  font-size: 14px;
-  line-height: 1.8;
+footer{
+  background:#2a1c13;
+  color:#eee;
+  text-align:center;
+  padding:20px;
+  font-size:14px;
 }
 </style>
 </head>
@@ -146,81 +148,118 @@ footer {
 <body>
 
 <nav>
-  <a href="#home">🏠 الرئيسية</a>
-  <a href="#about">🏭 عن المصنع</a>
-  <a href="#products">🥜 منتجاتنا</a>
-  <a href="#export">🚢 التصدير</a>
-  <a href="#gallery">📸 الصور</a>
-  <a href="#contact">📞 تواصل معنا</a>
+  <div class="links">
+    <a href="#home" class="active" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="#about" data-ar="عن المصنع" data-en="About">عن المصنع</a>
+    <a href="#products" data-ar="منتجاتنا" data-en="Products">منتجاتنا</a>
+    <a href="#export" data-ar="التصدير" data-en="Export">التصدير</a>
+    <a href="#gallery" data-ar="الصور" data-en="Gallery">الصور</a>
+    <a href="#contact" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a>
+  </div>
+  <button class="lang-btn" id="langBtn">EN</button>
 </nav>
 
-<section id="home">
+<section id="home" class="show">
   <img src="logo.png">
   <h1>FRIEND PEANUT</h1>
-  <p>فريند بينت للاستيراد والتصدير 🥜</p>
+  <p data-ar="فريند بينت للاستيراد والتصدير"
+     data-en="Friend Peanut for Import & Export">
+     فريند بينت للاستيراد والتصدير
+  </p>
 </section>
 
 <section id="about">
-  <h2>🏭 عن المصنع</h2>
-  <p>
-    مصنع فريند بينت من أقدم مصانع الفول السوداني في مصر،
-    بخبرة تزيد عن <strong>50 عامًا</strong> في الزراعة والتصنيع.
+  <h2 data-ar="عن المصنع" data-en="About Factory">عن المصنع</h2>
+  <p data-ar="أكثر من 50 عامًا من الخبرة في زراعة وتصنيع وتصدير الفول السوداني."
+     data-en="Over 50 years of experience in peanut farming, processing and export.">
   </p>
 </section>
 
 <section id="products">
-  <h2>🥜 منتجاتنا</h2>
-  <ul style="list-style:none;padding:0;font-size:18px;">
-    <li>✔ فول سوداني خام</li>
-    <li>✔ فول سوداني مقشر</li>
-    <li>✔ فول سوداني للتصدير</li>
+  <h2 data-ar="منتجاتنا" data-en="Our Products">منتجاتنا</h2>
+  <ul>
+    <li data-ar="✔ فول سوداني خام" data-en="✔ Raw Peanuts"></li>
+    <li data-ar="✔ فول سوداني مقشر" data-en="✔ Shelled Peanuts"></li>
+    <li data-ar="✔ مخصص للتصدير" data-en="✔ Export Grade"></li>
   </ul>
 </section>
 
 <section id="export">
-  <h2>🚢 التصدير</h2>
-  <p>نصدر إلى أوروبا والدول العربية بأعلى معايير الجودة.</p>
+  <h2 data-ar="التصدير" data-en="Export">التصدير</h2>
+  <p data-ar="نصدر إلى أوروبا والدول العربية."
+     data-en="We export to Europe and Arab countries.">
+  </p>
   <p><strong>ISO 9001 – ISO 22000 – GLOBAL GAP</strong></p>
-  <img src="iso.jpeg" style="width:300px;border-radius:15px;margin-top:20px;">
+  <img src="iso.jpeg" style="width:280px;border-radius:12px;">
 </section>
 
 <section id="gallery">
-  <h2>📸 صور المصنع والتصنيع</h2>
+  <h2 data-ar="صور المصنع والتصنيع" data-en="Factory & Processing Gallery">صور المصنع والتصنيع</h2>
   <div class="gallery">
-    <img src="1.jpeg">
-    <img src="2.jpeg">
-    <img src="3.jpeg">
-    <img src="4.jpeg">
-    <img src="5.jpeg">
-    <img src="6.jpeg">
-    <img src="7.jpeg">
-    <img src="8.jpeg">
-    <img src="9.jpeg">
+    <img src="1.jpeg"><img src="2.jpeg"><img src="3.jpeg">
+    <img src="4.jpeg"><img src="5.jpeg"><img src="6.jpeg">
+    <img src="7.jpeg"><img src="8.jpeg"><img src="9.jpeg">
   </div>
 </section>
 
 <section id="contact" class="contact">
-  <h2>📞 تواصل معنا</h2>
-
+  <h2 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
   <p>
-    <strong>ا: محمد الشبراوي</strong><br>
-    مدير المبيعات والتصدير<br>
-    <a class="phone" href="tel:+201274095083">📞 +20 127 409 5083</a>
+    <strong data-ar="أ:محمد الشبراوي" data-en="Mohamed El-Sherbawy"></strong><br>
+    <span data-ar="مدير المبيعات والتصدير" data-en="Sales & Export Manager"></span><br>
+    <span class="phone">+20 127 409 5083</span>
   </p>
 
   <p>
-    <strong>الحاج: محمد صيام</strong><br>
-    قسم المبيعات<br>
-    <a class="phone" href="tel:+201068345983">📞 +20 106 834 5983</a>
+    <strong data-ar="الحاج : محمد صيام" data-en="Mohamed Siam"></strong><br>
+    <span data-ar="قسم المبيعات" data-en="Sales Department"></span><br>
+    <span class="phone">+20 106 834 5983</span>
   </p>
 
-  <p>📍 الشرقية – أبو حماد – مصر<br>✉️ hosamseiam@yahoo.com</p>
+  <p>📍 Egypt – El Sharkia – Abu Hammad<br>✉️ hosamseiam@yahoo.com</p>
 </section>
 
 <footer>
   © 2026 FRIEND PEANUT – All Rights Reserved<br>
   Developed & Designed by <strong>WonderTech</strong>
 </footer>
+
+<script>
+/* Scroll animation */
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll("section").forEach(sec=>{
+    if(sec.getBoundingClientRect().top < window.innerHeight-100){
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* Active nav */
+const links=document.querySelectorAll("nav a");
+window.addEventListener("scroll",()=>{
+  let fromTop=window.scrollY+150;
+  links.forEach(link=>{
+    let sec=document.querySelector(link.getAttribute("href"));
+    if(sec.offsetTop<=fromTop && sec.offsetTop+sec.offsetHeight>fromTop){
+      links.forEach(l=>l.classList.remove("active"));
+      link.classList.add("active");
+    }
+  });
+});
+
+/* Language switch */
+let ar=true;
+document.getElementById("langBtn").onclick=()=>{
+  ar=!ar;
+  document.documentElement.lang=ar?"ar":"en";
+  document.documentElement.dir=ar?"rtl":"ltr";
+  document.getElementById("langBtn").innerText=ar?"EN":"AR";
+
+  document.querySelectorAll("[data-ar]").forEach(el=>{
+    el.innerText=ar?el.dataset.ar:el.dataset.en;
+  });
+};
+</script>
 
 </body>
 </html>
