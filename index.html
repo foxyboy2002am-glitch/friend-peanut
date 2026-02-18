@@ -2,353 +2,188 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>FRIEND PEANUT | Import & Export</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friend Peanut</title>
 
 <style>
-    .contact {
-    text-align: center;
+html {
+  scroll-behavior: smooth;
 }
-
-.contact-card {
-    background: rgba(255,255,255,0.12);
-    border-radius: 16px;
-    padding: 18px;
-    margin: 18px auto;
-    max-width: 340px;
-}
-
-.contact-card .name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--gold);
-}
-
-.contact-card .role {
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
-
-.contact-card .phone {
-    direction: ltr;          /* 👈 الحل السحري */
-    unicode-bidi: embed;
-    font-size: 1.05rem;
-    margin-top: 8px;
-}
-
-.contact-card a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.location, .email {
-    margin-top: 12px;
-}
-:root {
-    --main: #8b5a2b;      /* لون فول سوداني */
-    --dark: #5c3b1e;
-    --light: #f6efe8;
-    --gold: #d4af37;
-}
-
-/* Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-    font-family: "Segoe UI", Tahoma;
-    background: var(--light);
-    color: #333;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: Tahoma, Arial;
+  background: #f7f2ec;
+  color: #333;
 }
 
-/* NAV */
+/* ===== NAV ===== */
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(92,59,30,0.95);
-    padding: 15px 40px;
-    z-index: 999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #3b2a1f;
+  padding: 15px;
+  text-align: center;
+  z-index: 1000;
 }
+
 nav a {
-    color: #fff;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-nav a:hover { color: var(--gold); }
-
-/* HERO */
-.hero {
-    height: 100vh;
-    background: radial-gradient(circle at top, #a4713a, #5c3b1e);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 80px;
-    position: relative;
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.hero::after {
-    content:"";
-    position:absolute;
-    bottom:-1px;
-    width:100%;
-    height:120px;
-    background: var(--light);
-    border-radius: 100% 100% 0 0;
+/* ===== SECTIONS ===== */
+section {
+  padding: 100px 20px;
+  text-align: center;
 }
 
-.hero-content img {
-    width: 200px;              /* كبر واضح */
-    max-width: 70vw;           /* ميتفلتش على الموبايل */
-    height: auto;
-    background: none;
-    padding: 0;
-    object-fit: contain;
-    filter: drop-shadow(0 14px 28px rgba(0,0,0,0.4));
-    margin-bottom: 25px;
+h2 {
+  color: #7a4a1e;
+  margin-bottom: 20px;
 }
 
-/* موبايل */
-@media (max-width: 768px) {
-    .hero-content img {
-        width: 160px;          /* كبير ومظبوط */
-    }
+/* ===== HOME ===== */
+#home {
+  background: linear-gradient(#8b5a2b, #c9a36b);
+  color: white;
+  padding-top: 140px;
 }
 
-/* موبايل */
-@media (max-width: 768px) {
-    .hero-content img {
-        width: 120px;   
-    }
+#home img {
+  width: 140px;
+  margin-bottom: 20px;
 }
 
-/* موبايل */
-@media (max-width: 768px) {
-    .hero-content img {
-        width: 95px;
-    }
+#home h1 {
+  font-size: 40px;
+  letter-spacing: 3px;
 }
 
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+/* ===== GALLERY ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.hero h1 {
-    color: #fff;
-    font-size: 48px;
-    margin-top: 20px;
-    letter-spacing: 3px;
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.hero p {
-    color: #f3e7da;
-    font-size: 20px;
-    margin-top: 10px;
+/* ===== CONTACT ===== */
+.contact p {
+  font-size: 18px;
+  line-height: 1.8;
 }
 
-/* SECTION */
-.section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 100px 30px;
-}
-
-.section h2 {
-    text-align: center;
-    font-size: 36px;
-    color: var(--main);
-    margin-bottom: 30px;
-}
-
-/* ABOUT */
-.about {
-    text-align: center;
-    font-size: 20px;
-    color: #555;
-    line-height: 2;
-}
-
-/* BADGES */
-.badges {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-}
-.badge {
-    background: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    font-weight: bold;
-}
-
-/* PRODUCTS */
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-.card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    transition: 0.4s;
-}
-.card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-}
-.card h3 {
-    color: var(--dark);
-    margin-bottom: 15px;
-}
-
-/* FARMS */
-.farms {
-    background: linear-gradient(135deg,#f1e3d3,#e8d2b5);
-    border-radius: 30px;
-    padding: 60px;
-    text-align: center;
-    font-size: 22px;
-}
-
-/* CONTACT */
-.contact {
-    text-align: center;
-    font-size: 20px;
-}
-.contact p { margin: 10px 0; }
-
-/* FOOTER */
-footer {
-    background: var(--dark);
-    color: #fff;
-    text-align: center;
-    padding: 30px;
-    margin-top: 100px;
+.contact a {
+  color: #7a4a1e;
+  font-weight: bold;
+  text-decoration: none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-    <div><strong>FRIEND PEANUT</strong></div>
-    <div>
-        <a href="#">الرئيسية</a>
-        <a href="#">عن المصنع</a>
-        <a href="#">منتجاتنا</a>
-        <a href="#">التصدير</a>
-        <a href="#">تواصل معنا</a>
-    </div>
+  <a href="#home">الرئيسية</a>
+  <a href="#about">عن المصنع</a>
+  <a href="#products">منتجاتنا</a>
+  <a href="#export">التصدير</a>
+  <a href="#gallery">الصور</a>
+  <a href="#contact">تواصل معنا</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-content">
-        <img src="logo.png">
-        <h1>FRIEND PEANUT</h1>
-        <p>فريند بينت للاستيراد والتصدير</p>
-    </div>
+<!-- ===== HOME ===== -->
+<section id="home">
+  <img src="logo.png" alt="Friend Peanut Logo">
+  <h1>FRIEND PEANUT</h1>
+  <p>فريند بينت للاستيراد والتصدير</p>
 </section>
 
-<!-- ABOUT -->
-<section class="section">
-    <h2>عن المصنع</h2>
-    <p class="about">
-        FRIEND PEANUT شركة رائدة في تجهيز وتصدير الفول السوداني
-        وفقًا لأعلى المواصفات العالمية ومعايير الجودة المعتمدة للتصدير.
-    </p>
-
-    <div class="badges">
-        <div class="badge">ISO Certified</div>
-        <div class="badge">GLOBAL G.A.P</div>
-        <div class="badge">Export Quality</div>
-    </div>
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <h2>عن المصنع</h2>
+  <p>
+    مصنع فريند بينت من أقدم مصانع الفول السوداني في مصر،
+    حيث يمتد تاريخه لأكثر من <strong>50 عامًا</strong> في مجال
+    الزراعة والتصنيع والتصدير.
+  </p>
+  <p>
+    يعتمد المصنع على إنتاج مزارعه الخاصة ويقوم بكافة مراحل
+    الفرز والتجهيز والتعبئة طبقًا لأعلى معايير الجودة.
+  </p>
 </section>
 
-<!-- FARMS -->
-<section class="section">
-    <div class="farms">
-        🌱 <strong>السوداني من مزارعنا</strong><br>
-        نتحكم في الجودة من الزراعة وحتى التصدير لضمان أفضل محصول.
-    </div>
+<!-- ===== PRODUCTS ===== -->
+<section id="products">
+  <h2>منتجاتنا</h2>
+  <ul style="list-style:none;padding:0;font-size:18px;">
+    <li>✔ فول سوداني خام</li>
+    <li>✔ فول سوداني مقشر</li>
+    <li>✔ فول سوداني مخصص للتصدير</li>
+  </ul>
 </section>
 
-<!-- PRODUCTS -->
-<section class="section">
-    <h2>منتجاتنا</h2>
-    <div class="products">
-        <div class="card">
-            <h3>Groundnuts In Shell</h3>
-            <p>فول سوداني بقشره مطابق لمواصفات التصدير.</p>
-        </div>
-        <div class="card">
-            <h3>Peanuts for Export</h3>
-            <p>مجهز – مفروز – معبأ بأعلى جودة.</p>
-        </div>
-        <div class="card">
-            <h3>Bulk Supply</h3>
-            <p>توريد حاويات وكميات تجارية للأسواق العالمية.</p>
-        </div>
-    </div>
+<!-- ===== EXPORT ===== -->
+<section id="export">
+  <h2>التصدير</h2>
+  <p>
+    نقوم بتصدير منتجاتنا إلى أوروبا والدول العربية
+    مع الالتزام الكامل بمعايير سلامة الغذاء.
+  </p>
+  <p>
+    حاصلون على شهادات:
+    <strong>ISO 9001 – ISO 22000 – GLOBAL GAP</strong>
+  </p>
+  <img src="images/iso.jpg" style="width:300px;margin-top:20px;border-radius:10px;">
 </section>
 
-<!-- CONTACT -->
-<section class="section contact">
-    <h2>تواصل معنا</h2>
-
-    <div class="contact-card">
-        <p class="name">محمد الشبراوي</p>
-        <p class="role">مدير المبيعات والتصدير</p>
-        <p class="phone">
-            📞 <a href="tel:+201274095083">+20 127 409 5083</a>
-        </p>
-    </div>
-
-    <div class="contact-card">
-        <p class="name">الحاج :محمد صيام</p>
-        <p class="role">رئيس مجلس الادارة</p>
-        <p class="phone">
-            📞 <a href="tel:+201068345983">+20 106 834 5983</a>
-        </p>
-    </div>
-
-    <p class="location">📍 الشرقية – أبو حماد – مصر</p>
-    <p class="email">📧 hosamseiam@yahoo.com</p>
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <h2>صور المصنع والتصنيع</h2>
+  <div class="gallery">
+    <img src="images/1.jpg">
+    <img src="images/2.jpg">
+    <img src="images/3.jpg">
+    <img src="images/4.jpg">
+    <img src="images/5.jpg">
+    <img src="images/6.jpg">
+    <img src="images/7.jpg">
+    <img src="images/8.jpg">
+    <img src="images/9.jpg">
+  </div>
 </section>
 
-<footer>
-    © 2026 FRIEND PEANUT – All Rights Reserved<br>
-    Developed & Designed by <strong>WonderTech</strong>
-</footer>
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact">
+  <h2>تواصل معنا</h2>
 
-<script>
-/* Scroll animation */
-window.addEventListener("scroll", () => {
-    document.querySelectorAll(".card").forEach(card => {
-        let pos = card.getBoundingClientRect().top;
-        if (pos < window.innerHeight - 100) {
-            card.style.opacity = 1;
-            card.style.transform = "translateY(0)";
-        }
-    });
-});
-</script>
+  <p>
+    <strong>ا:محمد الشبراوي</strong><br>
+    مدير المبيعات والتصدير<br>
+    📞 <a href="tel:+201274095083">+20 127 409 5083</a>
+  </p>
+
+  <p>
+    <strong>الحاج:محمد صيام </strong><br>
+    قسم المبيعات<br>
+    📞 <a href="tel:+201068345983">+20 106 834 5983</a>
+  </p>
+
+  <p>
+    📍 الشرقية – أبو حماد – مصر<br>
+    ✉️ hosamseiam@yahoo.com
+  </p>
+</section>
 
 </body>
 </html>
-
-
