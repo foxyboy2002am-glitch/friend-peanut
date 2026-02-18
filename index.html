@@ -6,9 +6,7 @@
 <title>Friend Peanut</title>
 
 <style>
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -22,10 +20,11 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #3b2a1f;
+  background: rgba(59,42,31,0.95);
   padding: 15px;
   text-align: center;
   z-index: 1000;
+  backdrop-filter: blur(5px);
 }
 
 nav a {
@@ -33,12 +32,36 @@ nav a {
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #f4c27a;
+  left: 50%;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
 }
 
 /* ===== SECTIONS ===== */
 section {
   padding: 100px 20px;
   text-align: center;
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
 }
 
 h2 {
@@ -50,12 +73,18 @@ h2 {
 #home {
   background: linear-gradient(#8b5a2b, #c9a36b);
   color: white;
-  padding-top: 140px;
+  padding-top: 150px;
 }
 
 #home img {
   width: 140px;
   margin-bottom: 20px;
+  animation: zoomIn 1s ease;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.7); opacity:0;}
+  to {transform: scale(1); opacity:1;}
 }
 
 #home h1 {
@@ -66,29 +95,36 @@ h2 {
 /* ===== GALLERY ===== */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
   max-width: 1200px;
   margin: auto;
 }
 
 .gallery img {
   width: 100%;
-  border-radius: 10px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: 0.4s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
 /* ===== CONTACT ===== */
 .contact p {
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 2;
 }
 
-/* حل مشكلة الأرقام */
 .phone {
   direction: ltr;
   unicode-bidi: embed;
   display: inline-flex;
-  align-items: center;
   gap: 6px;
   font-weight: bold;
   color: #7a4a1e;
@@ -110,62 +146,46 @@ footer {
 <body>
 
 <nav>
-  <a href="#home">الرئيسية</a>
-  <a href="#about">عن المصنع</a>
-  <a href="#products">منتجاتنا</a>
-  <a href="#export">التصدير</a>
-  <a href="#gallery">الصور</a>
-  <a href="#contact">تواصل معنا</a>
+  <a href="#home">🏠 الرئيسية</a>
+  <a href="#about">🏭 عن المصنع</a>
+  <a href="#products">🥜 منتجاتنا</a>
+  <a href="#export">🚢 التصدير</a>
+  <a href="#gallery">📸 الصور</a>
+  <a href="#contact">📞 تواصل معنا</a>
 </nav>
 
-<!-- ===== HOME ===== -->
 <section id="home">
-  <img src="logo.png" alt="Friend Peanut Logo">
+  <img src="logo.png">
   <h1>FRIEND PEANUT</h1>
-  <p>فريند بينت للاستيراد والتصدير</p>
+  <p>فريند بينت للاستيراد والتصدير 🥜</p>
 </section>
 
-<!-- ===== ABOUT ===== -->
 <section id="about">
-  <h2>عن المصنع</h2>
+  <h2>🏭 عن المصنع</h2>
   <p>
     مصنع فريند بينت من أقدم مصانع الفول السوداني في مصر،
-    حيث يمتد تاريخه لأكثر من <strong>50 عامًا</strong> في مجال
-    الزراعة والتصنيع والتصدير.
-  </p>
-  <p>
-    يعتمد المصنع على إنتاج مزارعه الخاصة ويقوم بكافة مراحل
-    الفرز والتجهيز والتعبئة طبقًا لأعلى معايير الجودة.
+    بخبرة تزيد عن <strong>50 عامًا</strong> في الزراعة والتصنيع.
   </p>
 </section>
 
-<!-- ===== PRODUCTS ===== -->
 <section id="products">
-  <h2>منتجاتنا</h2>
+  <h2>🥜 منتجاتنا</h2>
   <ul style="list-style:none;padding:0;font-size:18px;">
     <li>✔ فول سوداني خام</li>
     <li>✔ فول سوداني مقشر</li>
-    <li>✔ فول سوداني مخصص للتصدير</li>
+    <li>✔ فول سوداني للتصدير</li>
   </ul>
 </section>
 
-<!-- ===== EXPORT ===== -->
 <section id="export">
-  <h2>التصدير</h2>
-  <p>
-    نقوم بتصدير منتجاتنا إلى أوروبا والدول العربية
-    مع الالتزام الكامل بمعايير سلامة الغذاء.
-  </p>
-  <p>
-    حاصلون على شهادات:
-    <strong>ISO 9001 – ISO 22000 – GLOBAL GAP</strong>
-  </p>
-  <img src="iso.jpeg" style="width:300px;margin-top:20px;border-radius:10px;">
+  <h2>🚢 التصدير</h2>
+  <p>نصدر إلى أوروبا والدول العربية بأعلى معايير الجودة.</p>
+  <p><strong>ISO 9001 – ISO 22000 – GLOBAL GAP</strong></p>
+  <img src="iso.jpeg" style="width:300px;border-radius:15px;margin-top:20px;">
 </section>
 
-<!-- ===== GALLERY ===== -->
 <section id="gallery">
-  <h2>صور المصنع والتصنيع</h2>
+  <h2>📸 صور المصنع والتصنيع</h2>
   <div class="gallery">
     <img src="1.jpeg">
     <img src="2.jpeg">
@@ -179,9 +199,8 @@ footer {
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact" class="contact">
-  <h2>تواصل معنا</h2>
+  <h2>📞 تواصل معنا</h2>
 
   <p>
     <strong>ا: محمد الشبراوي</strong><br>
@@ -195,10 +214,7 @@ footer {
     <a class="phone" href="tel:+201068345983">📞 +20 106 834 5983</a>
   </p>
 
-  <p>
-    📍 الشرقية – أبو حماد – مصر<br>
-    ✉️ hosamseiam@yahoo.com
-  </p>
+  <p>📍 الشرقية – أبو حماد – مصر<br>✉️ hosamseiam@yahoo.com</p>
 </section>
 
 <footer>
