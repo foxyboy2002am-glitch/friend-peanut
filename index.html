@@ -118,6 +118,15 @@ footer{background:var(--gd);color:#d7e6cd;text-align:center;padding:30px 16px ca
 footer img{width:64px;height:64px;border-radius:50%;margin:0 auto 10px}
 footer strong{color:var(--o)}
 
+
+/* DEV CREDIT */
+.dev{max-width:520px;margin:22px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.15);display:flex;flex-direction:column;align-items:center;gap:10px}
+.dev .lg{width:110px;height:110px;border-radius:20px;background:#fff;object-fit:contain;padding:4px;box-shadow:0 8px 22px rgba(0,0,0,.3)}
+.dev .by{font-size:15px}
+.dev .nums{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.dev .nums a{direction:ltr;text-decoration:none;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:9px 18px;border-radius:30px;transition:.25s}
+.dev .nums a:hover{background:var(--o);border-color:var(--o)}
+
 /* FLOATING + BOTTOM BAR (mobile) */
 .fab{position:fixed;left:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:90;width:58px;height:58px;border-radius:50%;background:#25d366;
   display:grid;place-items:center;box-shadow:0 10px 25px rgba(37,211,102,.5);text-decoration:none;font-size:28px}
@@ -274,7 +283,15 @@ footer strong{color:var(--o)}
 <footer>
   <img src="logo.jpeg" alt="">
   © 2026 FRIEND PEANUT – All Rights Reserved<br>
-  Developed & Designed by <strong>WonderTech</strong>
+  <div class="dev">
+    <img class="lg" src="wondertech.png" alt="WonderTech">
+    <div class="by"><span data-ar="تطوير وتصميم" data-en="Developed & Designed by"></span> <strong>WonderTech</strong></div>
+    <div class="by" data-ar="للتواصل مع الشركة المطورة" data-en="Contact the developer"></div>
+    <div class="nums">
+      <a href="tel:+201001346655">01001346655</a>
+      <a href="tel:+201124288688">01124288688</a>
+    </div>
+  </div>
 </footer>
 
 <a class="fab" href="https://wa.me/201009007151" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
