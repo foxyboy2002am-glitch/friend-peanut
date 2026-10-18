@@ -3,162 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Friend Peanut</title>
+<title>Friend Peanut | فريند بينت</title>
+<link rel="icon" href="logo.jpeg">
 
 <style>
 :root{
-  --brown:#2c1b12;
+  --green:#3fa91c;
+  --green-dark:#1f4d2b;
+  --green-soft:#eef6e4;
+  --orange:#f59a0c;
   --gold:#c9a36b;
-  --bg:#f6f3ef;
+  --bg:#fbfdf7;
+  --text:#2b3a2d;
 }
-
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
 
-body{
-  margin:0;
-  font-family:"Segoe UI",Tahoma;
-  background:var(--bg);
-  color:#333;
-}
-
-/* ===== NAV ===== */
+/* NAV */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(44,27,18,.92);
-  backdrop-filter:blur(10px);
-  padding:14px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
+  position:fixed;top:0;width:100%;z-index:1000;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+  box-shadow:0 2px 18px rgba(31,77,43,.12);
+  padding:8px 40px;display:flex;justify-content:space-between;align-items:center;gap:16px;
 }
-
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--green)}
+.brand span{font-weight:800;color:var(--green-dark);font-size:18px;letter-spacing:1px}
+nav .links{display:flex;flex-wrap:wrap}
 nav .links a{
-  color:#fff;
-  margin:0 14px;
-  text-decoration:none;
-  font-weight:600;
-  position:relative;
+  color:var(--green-dark);margin:0 12px;text-decoration:none;font-weight:600;position:relative;
 }
-
 nav .links a::after{
-  content:"";
-  position:absolute;
-  bottom:-6px;
-  left:0;
-  width:0;
-  height:2px;
-  background:var(--gold);
-  transition:.3s;
+  content:"";position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--orange);transition:.3s;
 }
-
-nav .links a:hover,
-nav .links a.active{
-  color:var(--gold);
-}
-
-nav .links a:hover::after,
-nav .links a.active::after{
-  width:100%;
-}
-
+nav .links a:hover,nav .links a.active{color:var(--green)}
+nav .links a:hover::after,nav .links a.active::after{width:100%}
 .lang-btn{
-  background:var(--gold);
-  border:none;
-  padding:7px 18px;
-  border-radius:30px;
-  cursor:pointer;
-  font-weight:bold;
+  background:var(--green);color:#fff;border:none;padding:8px 20px;border-radius:30px;
+  cursor:pointer;font-weight:bold;transition:.3s;
 }
+.lang-btn:hover{background:var(--orange)}
 
-/* ===== HERO ===== */
+/* HERO */
 #home{
-  height:100vh;
-  background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-  url("1.jpeg") center/cover no-repeat;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:white;
+  min-height:100vh;padding:120px 24px 60px;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(63,169,28,.18),transparent 45%),
+    radial-gradient(circle at 85% 80%,rgba(245,154,12,.14),transparent 40%),
+    linear-gradient(180deg,#f4faea,#e7f3d6);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+}
+.hero-banner{
+  width:100%;max-width:1100px;border-radius:24px;
+  box-shadow:0 25px 60px rgba(31,77,43,.22);
+  border:6px solid #fff;
+}
+#home p{font-size:20px;color:var(--green-dark);margin:28px 0 20px;font-weight:600}
+.btn{
+  display:inline-block;padding:13px 34px;border-radius:40px;text-decoration:none;
+  font-weight:700;margin:6px;transition:.3s;
+}
+.btn.primary{background:var(--green-dark);color:#fff}
+.btn.primary:hover{background:var(--green)}
+.btn.outline{border:2px solid var(--green-dark);color:var(--green-dark)}
+.btn.outline:hover{background:var(--green-dark);color:#fff}
+
+/* SECTIONS */
+section{padding:90px 24px;text-align:center}
+section:nth-of-type(even){background:var(--green-soft)}
+h2{color:var(--green-dark);font-size:34px;margin:0 0 40px;position:relative;display:inline-block}
+h2::after{
+  content:"";display:block;width:60%;height:4px;margin:10px auto 0;border-radius:4px;
+  background:linear-gradient(90deg,var(--green),var(--orange));
 }
 
-#home img{
-  width:140px;
-  background:white;
-  border-radius:50%;
-  padding:10px;
-  margin-bottom:20px;
-}
-
-#home h1{
-  font-size:46px;
-  letter-spacing:3px;
-}
-
-/* ===== SECTIONS ===== */
-section{
-  padding:100px 30px;
-  text-align:center;
-}
-
-h2{
-  color:#7a4a1e;
-  margin-bottom:30px;
-  font-size:32px;
-}
-
-/* ===== CARD ===== */
 .card{
-  max-width:900px;
-  margin:auto;
-  background:white;
-  padding:35px;
-  border-radius:18px;
-  box-shadow:0 15px 30px rgba(0,0,0,.1);
+  max-width:900px;margin:auto;background:#fff;padding:36px;border-radius:22px;
+  box-shadow:0 15px 35px rgba(31,77,43,.1);border-top:5px solid var(--green);
 }
 
-/* ===== GALLERY ===== */
-.gallery{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:20px;
+.products{
+  max-width:900px;margin:auto;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;
 }
+.product{
+  background:#fff;padding:30px 20px;border-radius:20px;font-weight:700;color:var(--green-dark);
+  box-shadow:0 10px 25px rgba(31,77,43,.1);border-bottom:4px solid var(--orange);transition:.3s;
+}
+.product:hover{transform:translateY(-6px)}
+.product i{display:block;font-style:normal;font-size:34px;margin-bottom:8px}
 
+/* GALLERY */
+.gallery{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
 .gallery img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:16px;
-  transition:.4s;
+  width:100%;height:220px;object-fit:cover;border-radius:16px;transition:.4s;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
+.gallery img:hover{transform:scale(1.06);box-shadow:0 15px 30px rgba(31,77,43,.25)}
 
-.gallery img:hover{
-  transform:scale(1.08);
-  box-shadow:0 15px 30px rgba(0,0,0,.2);
-}
+/* CONTACT */
+.phone{direction:ltr;display:inline-block;font-weight:bold;color:var(--green)}
+.contact-logo{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:20px;border:3px solid var(--green)}
 
-/* ===== CONTACT ===== */
-.phone{
-  direction:ltr;
-  display:inline-block;
-  font-weight:bold;
-}
+/* FOOTER */
+footer{background:var(--green-dark);color:#e8f2dd;text-align:center;padding:28px;font-size:14px}
+footer strong{color:var(--orange)}
 
-/* ===== FOOTER ===== */
-footer{
-  background:#1f120c;
-  color:#eee;
-  text-align:center;
-  padding:25px;
-  font-size:14px;
+@media(max-width:820px){
+  nav{padding:8px 14px;flex-wrap:wrap;justify-content:center}
+  nav .links a{margin:0 7px;font-size:14px}
+  .brand span{display:none}
+  h2{font-size:28px}
 }
 </style>
 </head>
@@ -166,6 +122,7 @@ footer{
 <body>
 
 <nav>
+  <a href="#home" class="brand"><img src="logo.jpeg" alt="Friend Peanut"><span>FRIEND PEANUT</span></a>
   <div class="links">
     <a href="#home" class="active" data-ar="الرئيسية" data-en="Home"></a>
     <a href="#about" data-ar="عن المصنع" data-en="About"></a>
@@ -178,10 +135,13 @@ footer{
 </nav>
 
 <section id="home">
-  <img src="logo.png">
-  <h1>FRIEND PEANUT</h1>
-  <p data-ar="فريند بينت للاستيراد والتصدير"
-     data-en="Friend Peanut for Import & Export"></p>
+  <img class="hero-banner" src="banner.jpeg" alt="Friend Peanut - Premium Peanuts From Egypt">
+  <p data-ar="فريند بينت للاستيراد والتصدير – من مصر إلى العالم"
+     data-en="Friend Peanut for Import & Export – From Egypt to the World"></p>
+  <div>
+    <a class="btn primary" href="#contact" data-ar="تواصل معنا" data-en="Contact Us"></a>
+    <a class="btn outline" href="#products" data-ar="منتجاتنا" data-en="Our Products"></a>
+  </div>
 </section>
 
 <section id="about">
@@ -194,10 +154,10 @@ footer{
 
 <section id="products">
   <h2 data-ar="منتجاتنا" data-en="Our Products"></h2>
-  <div class="card">
-    ✔ فول سوداني خام<br>
-    ✔ فول سوداني مقشر<br>
-    ✔ فول سوداني مخصص للتصدير
+  <div class="products">
+    <div class="product"><i>🥜</i><span data-ar="فول سوداني خام" data-en="Raw Peanuts"></span></div>
+    <div class="product"><i>🌰</i><span data-ar="فول سوداني مقشر" data-en="Shelled Peanuts"></span></div>
+    <div class="product"><i>🚢</i><span data-ar="فول سوداني مخصص للتصدير" data-en="Export-Grade Peanuts"></span></div>
   </div>
 </section>
 
@@ -207,7 +167,7 @@ footer{
     <p data-ar="نصدر منتجاتنا إلى أوروبا والدول العربية بأعلى معايير الجودة."
        data-en="We export our products to Europe and Arab countries with the highest quality standards."></p>
 
-    <strong>ISO 9001 – ISO 22000 – GLOBAL GAP</strong><br><br>
+    <strong style="color:var(--green-dark)">ISO 9001 – ISO 22000 – GLOBAL GAP</strong><br><br>
 
     <img src="iso.jpeg" alt="ISO Certificates"
          style="width:260px;max-width:100%;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.15)">
@@ -217,39 +177,37 @@ footer{
 <section id="gallery">
   <h2 data-ar="صور المصنع والتصنيع" data-en="Factory & Processing"></h2>
   <div class="gallery">
-    <img src="1.jpeg"><img src="2.jpeg"><img src="3.jpeg">
-    <img src="4.jpeg"><img src="5.jpeg"><img src="6.jpeg">
-    <img src="7.jpeg"><img src="8.jpeg"><img src="9.jpeg">
+    <img src="1.jpeg" alt=""><img src="2.jpeg" alt=""><img src="3.jpeg" alt="">
+    <img src="4.jpeg" alt=""><img src="5.jpeg" alt=""><img src="6.jpeg" alt="">
+    <img src="7.jpeg" alt=""><img src="8.jpeg" alt=""><img src="9.jpeg" alt="">
   </div>
 
-  <h2 style="margin-top:80px"
-      data-ar="التعبئة والتخزين"
-      data-en="Packaging & Storage"></h2>
+  <h2 style="margin-top:80px" data-ar="التعبئة والتخزين" data-en="Packaging & Storage"></h2>
   <div class="gallery">
-    <img src="10.jpeg"><img src="11.jpeg"><img src="12.jpeg"><img src="13.jpeg">
+    <img src="10.jpeg" alt=""><img src="11.jpeg" alt=""><img src="12.jpeg" alt=""><img src="13.jpeg" alt="">
   </div>
 
-  <h2 style="margin-top:80px"
-      data-ar="الشحن والتصدير"
-      data-en="Shipping & Export"></h2>
+  <h2 style="margin-top:80px" data-ar="الشحن والتصدير" data-en="Shipping & Export"></h2>
   <div class="gallery">
-    <img src="14.jpeg"><img src="15.jpeg"><img src="16.jpeg">
-    <img src="17.jpeg"><img src="18.jpeg">
+    <img src="14.jpeg" alt=""><img src="15.jpeg" alt=""><img src="16.jpeg" alt="">
+    <img src="17.jpeg" alt=""><img src="18.jpeg" alt="">
   </div>
 </section>
 
 <section id="contact">
   <h2 data-ar="تواصل معنا" data-en="Contact Us"></h2>
   <div class="card">
-    <strong>الأستاذ / احمد صيام</strong><br>
-    مدير المبيعات والتصدير<br>
+    <img class="contact-logo" src="logo.jpeg" alt="Friend Peanut"><br>
+
+    <strong data-ar="الأستاذ / احمد صيام" data-en="Mr. Ahmed Seiam"></strong><br>
+    <span data-ar="مدير المبيعات والتصدير" data-en="Sales & Export Manager"></span><br>
     <span class="phone">+20 10 900 71151</span><br><br>
 
-    <strong>الحاج / محمد صيام</strong><br>
-    رئيس مجلس الإدارة<br>
+    <strong data-ar="الحاج / محمد صيام" data-en="Hag Mohamed Seiam"></strong><br>
+    <span data-ar="رئيس مجلس الإدارة" data-en="Chairman"></span><br>
     <span class="phone">+20 106 834 5983</span><br><br>
 
-    📍 مصر – الشرقية – أبو حماد<br>
+    <span data-ar="📍 مصر – الشرقية – أبو حماد" data-en="📍 Egypt – Sharqia – Abu Hammad"></span><br>
     ✉️ hosamseiam@yahoo.com
   </div>
 </section>
@@ -276,9 +234,16 @@ document.getElementById("langBtn").onclick=()=>{
   setLanguage(currentLang==="ar"?"en":"ar");
 };
 
-document.addEventListener("DOMContentLoaded",()=>{
-  setLanguage("ar");
+/* تفعيل الرابط النشط أثناء التمرير */
+const secs=[...document.querySelectorAll("section")];
+const links=[...document.querySelectorAll("nav .links a")];
+window.addEventListener("scroll",()=>{
+  let cur=secs[0].id;
+  secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-140) cur=s.id; });
+  links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));
 });
+
+document.addEventListener("DOMContentLoaded",()=>setLanguage("ar"));
 </script>
 
 </body>
